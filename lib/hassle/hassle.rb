@@ -17,7 +17,7 @@ class Hassle
       length = "".respond_to?(:bytesize) ? content.bytesize.to_s : content.size.to_s
       [200, {'Content-Type' => 'text/css',
              'Content-Length' => length,
-             'Cache-Control' => "public",
+             'Cache-Control' => "public, max-age=43200",
              'Last-Modified' => File.mtime(stylesheet_path).rfc2822 }, [content]]
       
     else
