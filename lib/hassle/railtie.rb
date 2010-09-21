@@ -7,7 +7,7 @@ module HassleRails
       require 'sass'
       require 'sass/plugin'
 
-      if (["production", "staging"].include?(RAILS_ENV))
+      if (ENV.include?('HEROKU_UPID'))
         if defined? Rails.configuration && defined? Rails.configuration.middleware
           Rails.configuration.middleware.use(Hassle)
         elsif defined? ActionController::Dispatcher && defined? ActionController::Dispatcher.middleware
